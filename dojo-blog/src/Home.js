@@ -15,7 +15,7 @@ const Home = () => {
     setBlogs(newBlogs);
   };
 
-  // runs initially and whenever there is a re-render
+  // runs initially and whenever there is a re-render - good for fetching data
   useEffect(() => {
     console.log("use effect", name);
     console.log(blogs);
