@@ -8,6 +8,8 @@ const Home = () => {
     { title: "Web dev", body: "lorem ipsum...", author: "mario", id: 3 },
   ]);
 
+  const [name, setName] = useState("mario");
+
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => blog.id !== id);
     setBlogs(newBlogs);
@@ -15,9 +17,10 @@ const Home = () => {
 
   // runs initially and whenever there is a re-render
   useEffect(() => {
-    console.log("use effect")
-    console.log(blogs)
-  })
+    console.log("use effect", name);
+    console.log(blogs);
+    // add dependency array
+  }, [name]);
 
   return (
     <div className="home">
@@ -27,6 +30,7 @@ const Home = () => {
         title="Mario's Blogs"
         handleDelete={handleDelete}
       />
+      <button onClick={() => setName('luigi')}>Change Name</button>
     </div>
   );
 };
